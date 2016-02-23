@@ -1,3 +1,74 @@
 <html>
-<h1>yoyo</h1>
+<body>
+<head>
+	<title>CAF-API</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
+	<style>
+	.contentArea{
+		width: 650px;
+		height: 250px;
+		border: 4px dashed black;
+		margin: 0 auto;
+		padding: 5px 5px;
+		overflow:scroll;
+	}
+	</style>
+</head>
+
+
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>
+				Café + API = CAF-API.
+			</h3>
+		<div class="contentArea">
+			Click a button below to access the CAF-API
+		</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<h3>Artisan (SJC11)</h3> <button type="button" class="btn btn-default" data-code="SJC11"> Fetch SJC11 </button>
+		</div>
+		<div class="col-md-4">
+			<h3>Eat at Bridges (SJCJ)</h3> <button type="button" class="btn btn-default" data-code="SJCJ"> Fetch SJCJ </button>
+		</div>
+		<div class="col-md-4">
+			<h3>Eat at Lakeview (SJC03)</h3> <button type="button" class="btn btn-default" data-code="SJC03"> Fetch SJC03 </button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<h3>Green Bar (SJCQ)</h3> <button type="button" class="btn btn-default" data-code="SJCQ"> Fetch SJCQ </button>
+		</div>
+		<div class="col-md-4">
+			<h3>Market 170 (SJCD)</h3> <button type="button" class="btn btn-default" data-code="SJCD"> Fetch SJCD </button>
+		</div>
+		<div class="col-md-4">
+			<h3>Milpa 3 Fresh (MR2)</h3> <button type="button" class="btn btn-default" data-code="MR2"> Fetch MR2 </button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<h3>Social Roast (SJC30)</h3> <button type="button" class="btn btn-default" data-code="SJC30"> Fetch SJC30 </button>
+		</div>
+		<div class="col-md-4">
+			<h3>The Food Foundry (SJC17)</h3> <button type="button" class="btn btn-default" data-code="SJC17"> Fetch SJC17 </button>
+		</div>
+		<div class="col-md-4">
+			<h3>The Quarter (SJC21)</h3> <button type="button" class="btn btn-default" data-code="SJC21"> Fetch SJC21 </button>
+		</div>
+	</div>
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.btn').on('click', function(){
+		    $('.contentArea').text("clicked" + $(this))
+		});
+	});
+</script>
 </html>
