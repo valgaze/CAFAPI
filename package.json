@@ -1,0 +1,23 @@
+{
+  "name": "cafapi",
+  "version": "1.0.0",
+  "description": "The Cafe API, or CAF-API, is a (not-so) revolutionary API which fetches menu data from the many eateries on Cisco's San Jose campus",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valgaze/CAFAPI.git"
+  },
+  "keywords": [
+    "Devnet",
+    "Cisco"
+  ],
+  "author": "Victor Algaze",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/valgaze/CAFAPI/issues"
+  },
+  "homepage": "https://github.com/valgaze/CAFAPI#readme"
+}
