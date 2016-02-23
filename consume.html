@@ -67,7 +67,12 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('.btn').on('click', function(){
-		    $('.contentArea').text("clicked" + $(this))
+			$('.contentArea').text("Loading...");
+			var ref = './' + $(this).data('code');
+
+			$.ajax({url: ref, success: function(result){
+						 $('.contentArea').text(JSON.stringify(result));
+				}});
 		});
 	});
 </script>
