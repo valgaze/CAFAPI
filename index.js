@@ -30,7 +30,6 @@ app.get('/cafes', function(req, res){
 });
 
 app.get('/:id', function(req, res) {
-
 	var queryID = req.params.id;
 	queryID = queryID ? queryID.toUpperCase() : queryID;
 
