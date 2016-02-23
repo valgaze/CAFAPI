@@ -28,3 +28,45 @@ var lookupHash = {
 app.get('/cafes', function(req, res){
 	res.send(Object.keys(lookupHash))
 });
+
+app.get('/:id', function(req, res) {
+
+	var queryID = req.params.id;
+	queryID = queryID ? queryID.toUpperCase() : queryID;
+
+	if (lookupHash[queryID] == undefined){
+		var errorObj = {Error:"Invalid cafe code. Use any of the following:" + Object.keys(lookupHash)}
+		return res.send(errorObj)
+	}
+
+	var queryObj = lookupHash[queryID];
+		var loc_id = queryObj.code;
+		var menu_id = queryObj.menu;
+		var label = queryObj.label;
+	var url = `http://www.aramarkcafe.com/components/menu_weekly_alternate.aspx?locationid=${loc_id}&pageid=20&menuid=${menu_id}`;
+
+	request(url, function (error, response, html) {
+    if (!error && response.statusCode == 200) {
+      var $ = cheerio.load(html);
+      var outputObject = {};
+
+      var columns = $('.column');
+
+      columns.each(function(i, element){
+
+      	var theDay = $(this).find('.header').text().trim();
+      	outputObject[theDay] = {};
+
+      	var theContent = $(this).find('p');
+      		theContent.each(function(j, element){
+      			var subHeading = $(this).find('.subhead').text().trim();
+
+      			var content = $(this).text().trim().replace( /[\s\n\r]+/g, ' ' );
+      			outputObject[theDay][subHeading] = content;
+      		});
+      });
+			outputObject['cafename'] = label;
+      res.send(outputObject);
+    }
+  });
+});
